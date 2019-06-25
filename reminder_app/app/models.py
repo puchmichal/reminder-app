@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Person(models.Model):
     name = models.CharField(max_length=200)
     # login + password
+
     def __str__(self):
-        return(self.name)
+        return self.name
 
 
 class Event(models.Model):
@@ -16,7 +18,7 @@ class Event(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return(self.author + ' - ' + self.title)
+        return self.author.name + ' - ' + self.title
 
     def add_event(self):
         pass
